@@ -16,6 +16,8 @@ syn region pdcPar start=/^\s*[[:print:]]/ end=/[[:print:]]\(\n\s*\n\)\@=/ keepen
 " YAML headers
 unlet! b:current_syntax
 syn include @YAML syntax/yaml.vim
+" Region name needs to math +header to hit blacklist
+" https://github.com/vim-pandoc/vim-pandoc/blob/master/autoload/pandoc/formatting.vim#L17
 syn region pdcYAMLHeader matchgroup=Delimiter start=/^\s*---\(\n\s*[[:print:]]\)\@=/ end=/[---|...]\n\s*\n/ keepend contains=@YAML
 
 " LaTeX environments
