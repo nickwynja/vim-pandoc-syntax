@@ -18,7 +18,7 @@ unlet! b:current_syntax
 syn include @YAML syntax/yaml.vim
 " Region name needs to math +header to hit blacklist
 " https://github.com/vim-pandoc/vim-pandoc/blob/master/autoload/pandoc/formatting.vim#L17
-syn region pdcYAMLHeader matchgroup=Delimiter start=/^\s*---\(\n\s*[[:print:]]\)\@=/ end=/[---|...]\n\s*\n/ keepend contains=@YAML
+syn region pdcYAMLHeader start=/\%(\%^\|\_^\s*\n\)\@<=\_^-\{3}\ze\n.\+/ end=/^\([-.]\)\1\{2}$/ keepend contains=@YAML
 
 " LaTeX environments
 " unlet! b:current_syntax
