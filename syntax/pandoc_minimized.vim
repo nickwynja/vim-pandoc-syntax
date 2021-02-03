@@ -16,14 +16,14 @@ syn region pdcPar start=/^\s*[[:print:]]/ end=/[[:print:]]\(\n\s*\n\)\@=/ keepen
 " YAML headers
 unlet! b:current_syntax
 syn include @YAML syntax/yaml.vim
-syn region pdcYAML matchgroup=Delimiter start=/^\s*---\(\n\s*[[:print:]]\)\@=/ end=/[---|...]\n\s*\n/ keepend contains=@YAML
+syn region pdcYAMLHeader matchgroup=Delimiter start=/^\s*---\(\n\s*[[:print:]]\)\@=/ end=/[---|...]\n\s*\n/ keepend contains=@YAML
 
 " LaTeX environments
-unlet! b:current_syntax
-syn include @LATEX syntax/tex.vim
-syn region pdcLaTeXEnv start=/\\begin{\z(.\{-}\)}/ end=/\\end{\z1}/ keepend contains=@LATEX
-syn region pdcLaTeXDisplayMath start=/\z(\\\@<!\$\{1,2}\)/ end=/\z1/ keepend contains=@LATEX containedin=pdcPar,pdcBlockQuote,pdcOList,pdcUList,pdcFootnote,pdcFootnotePar,pdcInlineFootnote
-syn match pdcLaTeXCmd /\\[[:alpha:]]\+\(\({.\{-}}\)\=\(\[.\{-}\]\)\=\)*/ contains=@LATEX keepend containedin=pdcPar,pdcBlockQuote,pdcOList,pdcUList,pdcFootnote,pdcFootnotePar,pdcInlineFootnote
+" unlet! b:current_syntax
+" syn include @LATEX syntax/tex.vim
+" syn region pdcLaTeXEnv start=/\\begin{\z(.\{-}\)}/ end=/\\end{\z1}/ keepend contains=@LATEX
+" syn region pdcLaTeXDisplayMath start=/\z(\\\@<!\$\{1,2}\)/ end=/\z1/ keepend contains=@LATEX containedin=pdcPar,pdcBlockQuote,pdcOList,pdcUList,pdcFootnote,pdcFootnotePar,pdcInlineFootnote
+" syn match pdcLaTeXCmd /\\[[:alpha:]]\+\(\({.\{-}}\)\=\(\[.\{-}\]\)\=\)*/ contains=@LATEX keepend containedin=pdcPar,pdcBlockQuote,pdcOList,pdcUList,pdcFootnote,pdcFootnotePar,pdcInlineFootnote
 
 " Code Blocks
 syn region pdcCodeblock start=/^\(\s\{4,}\|\t\{1,}\)/ end=/[[:print:]]\zs\n\ze\s*\n/
